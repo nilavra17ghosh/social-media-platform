@@ -756,7 +756,6 @@ Performance         | ✅ Optimized| High
 ## 📞 Support
 
 ### 🆘 Getting Help
-- 📧 Email: [your-email@example.com]
 - 💬 Issues: GitHub Issues tab
 - 📚 Docs: This README file
 - 🧪 Tests: Run `make test-all`
