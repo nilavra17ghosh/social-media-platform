@@ -32,14 +32,18 @@ A **production-ready social media platform** implemented in C with comprehensive
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/<your-github-profile-name>/social-media-platform.git
+git clone https://github.com/nilavra17ghosh/social-media-platform.git
 cd social-media-platform
 
 # 2. Compile the program
 make
+# OR: gcc -Wall -Wextra -std=c99 -g -o social_media code/main.c code/comment.c code/platform.c code/post.c code/reply.c
 
-# 3. Run with sample data
-make test
+# 3. Run comprehensive tests
+./run_tests.sh          # Linux/macOS
+# OR: run_tests.bat      # Windows
+# OR: make test-all      # All test suites
+# OR: make test          # Basic test only
 
 # 4. Interactive mode
 ./social_media
@@ -113,7 +117,13 @@ social-media-platform/
 │   ├── 📄 test_input.txt      # Basic functionality tests
 │   ├── 📄 test_edge_clean.txt # Edge case validation
 │   ├── 📄 test_stress.txt     # Stress testing scenarios
-│   └── 📄 test_memory.txt     # Memory safety tests
+│   ├── 📄 test_memory.txt     # Memory safety tests
+│   ├── 📄 test_stress_mini.txt# Mini stress tests
+│   ├── 📄 test_final_validation.txt # Production validation
+│   ├── 📄 test_edge_cases.txt # Comprehensive edge cases
+│   └── 📄 README.md           # Test documentation
+├── 📄 run_tests.sh            # Linux/macOS test runner
+├── 📄 run_tests.bat           # Windows test runner
 ├── 📄 Makefile               # Professional build system
 ├── 📄 README.md              # This documentation
 └── 📄 TEST_SUMMARY.md        # Detailed testing report
@@ -306,10 +316,10 @@ make test
 make test-all
 
 # Individual test categories
-./social_media < test_input.txt        # Basic functionality
-./social_media < test_edge_clean.txt   # Edge cases  
-./social_media < test_stress.txt       # Stress testing
-./social_media < test_memory.txt       # Memory safety
+./social_media < tests/test_input.txt        # Basic functionality
+./social_media < tests/test_edge_clean.txt   # Edge cases  
+./social_media < tests/test_stress.txt       # Stress testing
+./social_media < tests/test_memory.txt       # Memory safety
 ```
 
 ### 🐛 Build Troubleshooting
@@ -351,11 +361,15 @@ Our comprehensive testing framework includes **300+ test cases** covering every 
 
 | Test Suite | File | Operations | Focus Area |
 |------------|------|------------|------------|
-| 🟢 **Basic** | `test_input.txt` | 25 | Core functionality |
-| 🟡 **Edge Cases** | `test_edge_clean.txt` | 60+ | Boundary conditions |
-| 🔴 **Stress** | `test_stress.txt` | 200+ | Performance limits |
-| 🟣 **Memory** | `test_memory.txt` | 40+ | Memory safety |
-| 🔵 **Validation** | `test_final_validation.txt` | 25 | Production scenarios |
+| 🟢 **Basic** | `tests/test_input.txt` | 25 | Core functionality |
+| 🟡 **Edge Cases** | `tests/test_edge_clean.txt` | 60+ | Boundary conditions |
+| 🔴 **Stress** | `tests/test_stress.txt` | 200+ | Performance limits |
+| 🟣 **Memory** | `tests/test_memory.txt` | 40+ | Memory safety |
+| 🔵 **Validation** | `tests/test_final_validation.txt` | 25 | Production scenarios |
+| 🟠 **Mini Stress** | `tests/test_stress_mini.txt` | 50+ | Quick stress testing |
+| 📋 **Comprehensive** | `tests/test_edge_cases.txt` | 80+ | Detailed edge cases |
+
+**All test files are organized in the `tests/` directory with dedicated documentation.**
 
 ### 🚀 Running Tests
 
@@ -376,49 +390,117 @@ make test
 
 #### 🔍 Complete Test Suite (2 minutes)
 ```bash
-# Run all test categories
+# Option 1: Use automated test runner (Recommended)
+# Linux/macOS:
+./run_tests.sh
+
+# Windows:
+run_tests.bat
+
+# Option 2: Use Makefile
 make test-all
 
-# Or manually:
+# Option 3: Manual execution
 echo "Running Basic Tests..."
-./social_media < test_input.txt
+./social_media < tests/test_input.txt
 
 echo "Running Edge Case Tests..."  
-./social_media < test_edge_clean.txt
+./social_media < tests/test_edge_clean.txt
 
 echo "Running Stress Tests..."
-./social_media < test_stress.txt
+./social_media < tests/test_stress.txt
 
 echo "Running Memory Safety Tests..."
-./social_media < test_memory.txt
+./social_media < tests/test_memory.txt
 ```
 
-#### 🎛️ Individual Test Categories
+#### 🛠️ Automated Test Runners
+
+We provide cross-platform automated test runners for convenient testing:
+
+#### 🐧 Linux/macOS Test Runner
+```bash
+# Make executable (first time only)
+chmod +x run_tests.sh
+
+# Run comprehensive test suite
+./run_tests.sh
+```
+
+**Features:**
+- ✅ Colored output for easy result reading
+- ✅ Automatic pass/fail detection
+- ✅ Execution time tracking
+- ✅ Comprehensive test summary
+- ✅ Exit codes for CI/CD integration
+
+#### 🪟 Windows Test Runner
+```cmd
+# Run comprehensive test suite
+run_tests.bat
+```
+
+**Features:**
+- ✅ Windows-compatible output formatting
+- ✅ Automatic pass/fail detection
+- ✅ Test summary with statistics
+- ✅ Error level codes for batch processing
+
+#### 📊 Test Runner Output Example
+```
+Social Media Platform - Comprehensive Test Suite
+==================================================
+
+Test Categories:
+1. Basic Functionality Tests
+2. Edge Cases and Boundary Testing
+3. Stress Testing
+4. Memory Safety Testing
+5. Production Validation
+
+Running Basic_Functionality_Tests...
+Basic_Functionality_Tests PASSED
+
+Running Edge_Cases_Testing...
+Edge_Cases_Testing PASSED
+
+[... more tests ...]
+
+==================================================
+Test Results Summary:
+Total Tests: 6
+Passed: 6
+Failed: 0
+
+All tests passed! Your implementation is solid.
+```
+
+### 🎛️ Individual Test Categories
 
 **Basic Functionality Testing**
 ```bash
-./social_media < test_input.txt
+./social_media < tests/test_input.txt
 # Tests: Post creation, comments, replies, navigation
 # Expected: All operations succeed, proper output formatting
 ```
 
 **Edge Case Validation**
 ```bash
-./social_media < test_edge_clean.txt  
+./social_media < tests/test_edge_clean.txt  
 # Tests: Invalid indices, empty states, boundary conditions
 # Expected: Graceful error handling, no crashes
 ```
 
 **Stress Testing**
 ```bash
-./social_media < test_stress.txt
+./social_media < tests/test_stress.txt
 # Tests: 20+ posts, 10+ comments, complex scenarios
 # Expected: System remains stable under load
 ```
 
 **Memory Safety Testing**
 ```bash
-./social_media < test_memory.txt
+./social_media < tests/test_memory.txt
 # Tests: Rapid allocation/deallocation, boundary access
 # Expected: No memory leaks or segmentation faults
 ```
@@ -451,7 +533,7 @@ core dumped          # System crash
 #### 🧠 Custom Test Creation
 ```bash
 # Create your own test file
-cat > my_test.txt << EOF
+cat > tests/my_test.txt << EOF
 add_post testuser "Custom test post"
 view_post 1
 add_comment commenter "Test comment"
@@ -460,7 +542,7 @@ exit
 EOF
 
 # Run custom test
-./social_media < my_test.txt
+./social_media < tests/my_test.txt
 ```
 
 #### 🔍 Memory Leak Testing (Linux/macOS)
@@ -471,7 +553,7 @@ brew install valgrind      # macOS
 
 # Run memory leak detection
 valgrind --leak-check=full --show-leak-kinds=all \
-    ./social_media < test_input.txt
+    ./social_media < tests/test_input.txt
 
 # Expected output should show:
 # "All heap blocks were freed -- no leaks are possible"
@@ -480,10 +562,10 @@ valgrind --leak-check=full --show-leak-kinds=all \
 #### ⚡ Performance Benchmarking
 ```bash
 # Time execution
-time ./social_media < test_stress.txt
+time ./social_media < tests/test_stress.txt
 
 # Monitor memory usage
-/usr/bin/time -v ./social_media < test_stress.txt
+/usr/bin/time -v ./social_media < tests/test_stress.txt
 
 # Expected results:
 # - Execution time: < 1 second
@@ -622,7 +704,7 @@ Memory Safety      | 40+        | 0.01s   | 2MB
 #### Batch Operations
 ```bash
 # Create multiple posts quickly
-cat > batch_posts.txt << EOF
+cat > tests/batch_posts.txt << EOF
 add_post user1 post1
 add_post user2 post2  
 add_post user3 post3
@@ -630,7 +712,7 @@ view_post 2
 exit
 EOF
 
-./social_media < batch_posts.txt
+./social_media < tests/batch_posts.txt
 ```
 
 #### Complex Navigation Patterns
@@ -653,11 +735,11 @@ view_comments       # No comments (different post)
 # Generate large test file
 for i in {1..100}; do
     echo "add_post user$i \"Post number $i\""
-done > large_test.txt
-echo "exit" >> large_test.txt
+done > tests/large_test.txt
+echo "exit" >> tests/large_test.txt
 
 # Run stress test
-time ./social_media < large_test.txt
+time ./social_media < tests/large_test.txt
 ```
 
 ### 🎯 Use Case Examples
@@ -756,7 +838,6 @@ Performance         | ✅ Optimized| High
 ## 📞 Support
 
 ### 🆘 Getting Help
-- 📧 Email: [your-email@example.com]
 - 💬 Issues: GitHub Issues tab
 - 📚 Docs: This README file
 - 🧪 Tests: Run `make test-all`
