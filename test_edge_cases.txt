@@ -1,0 +1,98 @@
+# Edge Cases Test Suite
+# Test 1: Operations on empty platform
+view_post 1
+view_comments
+current_post
+next_post
+previous_post
+delete_post 1
+delete_comment 1
+delete_reply 1 1
+
+# Test 2: Invalid indices
+add_post user1 first_post
+view_post 0
+view_post -1
+view_post 999
+delete_post 0
+delete_post -1
+delete_post 999
+
+# Test 3: Comments without posts viewed
+add_comment user2 orphan_comment
+
+# Test 4: View post first, then add comments
+view_post 1
+add_comment user2 valid_comment
+add_comment user3 another_comment
+view_comments
+
+# Test 5: Replies without comments
+add_reply user4 orphan_reply 1
+
+# Test 6: Invalid reply indices
+add_reply user4 valid_reply 1
+add_reply user5 invalid_reply 0
+add_reply user6 invalid_reply -1
+add_reply user7 invalid_reply 999
+
+# Test 7: Delete operations with invalid indices
+delete_comment 0
+delete_comment -1
+delete_comment 999
+delete_reply 0 1
+delete_reply -1 1
+delete_reply 1 0
+delete_reply 1 -1
+delete_reply 999 999
+
+# Test 8: Navigation edge cases
+current_post
+next_post
+next_post
+next_post
+previous_post
+previous_post
+previous_post
+
+# Test 9: Multiple posts and complex navigation
+add_post user8 post2
+add_post user9 post3
+add_post user10 post4
+view_post 1
+next_post
+next_post
+next_post
+next_post
+previous_post
+view_post 2
+delete_post 2
+current_post
+next_post
+previous_post
+
+# Test 10: Complex comment and reply operations
+view_post 1
+add_comment user11 comment1
+add_comment user12 comment2
+add_comment user13 comment3
+add_reply user14 reply1_to_comment1 1
+add_reply user15 reply2_to_comment1 1
+add_reply user16 reply1_to_comment2 2
+view_comments
+delete_reply 1 1
+view_comments
+delete_comment 2
+view_comments
+delete_reply 1 1
+view_comments
+
+# Test 11: Unknown commands
+invalid_command
+add_invalid_post
+delete_invalid
+
+# Test 12: Empty usernames and content (will be handled by scanf)
+# These would fail in real input but testing the bounds
+
+exit

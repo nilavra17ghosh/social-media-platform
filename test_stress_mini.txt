@@ -1,0 +1,52 @@
+add_post user1 post001
+add_post user2 post002
+add_post user3 post003
+add_post user4 post004
+add_post user5 post005
+view_post 1
+view_post 3
+view_post 5
+view_post 10
+view_post 0
+view_post -5
+view_post 3
+next_post
+next_post
+next_post
+previous_post
+current_post
+next_post
+previous_post
+previous_post
+previous_post
+view_post 1
+add_comment commentuser1 comment1
+add_comment commentuser2 comment2
+add_comment commentuser3 comment3
+add_comment commentuser4 comment4
+add_comment commentuser5 comment5
+view_comments
+add_reply replyuser1 reply1 1
+add_reply replyuser2 reply2 1
+add_reply replyuser3 reply3 2
+add_reply replyuser4 reply4 3
+view_comments
+view_post 3
+add_comment post3user1 amazing_post
+add_comment post3user2 love_content
+add_reply post3reply1 totally_agree 1
+add_reply post3reply2 so_true 2
+delete_reply 1 1
+delete_reply 1 1
+delete_comment 1
+view_comments
+delete_post 1
+delete_post 3
+delete_post 5
+view_post 1
+view_post 3
+view_post 5
+current_post
+next_post
+previous_post
+exit

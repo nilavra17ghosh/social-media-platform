@@ -1,0 +1,29 @@
+add_post alice hello_world
+add_post bob second_post
+add_post charlie third_post
+view_post 1
+add_comment david great_post
+add_comment eve amazing_content
+add_reply frank thanks_alice 1
+add_reply grace love_it 2
+view_comments
+view_post 2
+add_comment henry nice_work
+view_post 3
+add_comment iris wonderful
+current_post
+previous_post
+previous_post
+next_post
+delete_comment 1
+view_comments
+delete_post 2
+view_post 1
+view_post 2
+next_post
+delete_reply 1 1
+view_comments
+add_post jack final_post
+view_post 1
+current_post
+exit

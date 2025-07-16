@@ -1,0 +1,57 @@
+# Memory Safety and Boundary Test Cases
+# These tests push the limits of memory allocation and string handling
+
+# Test 1: Rapid creation and deletion
+add_post u1 c1
+add_post u2 c2
+add_post u3 c3
+delete_post 1
+delete_post 2
+delete_post 3
+add_post u4 c4
+view_post 1
+
+# Test 2: Deep nesting
+add_post mainuser maincontent
+view_post 1
+add_comment c1 content1
+add_comment c2 content2
+add_comment c3 content3
+add_comment c4 content4
+add_comment c5 content5
+add_reply r1 rcontent1 1
+add_reply r2 rcontent2 1
+add_reply r3 rcontent3 1
+add_reply r4 rcontent4 2
+add_reply r5 rcontent5 2
+add_reply r6 rcontent6 3
+view_comments
+
+# Test 3: Alternating operations
+add_post alt1 altcontent1
+view_post 1
+add_comment altc1 altcontent1
+view_post 2
+add_comment altc2 altcontent2
+add_reply altr1 altreply1 1
+view_post 1
+delete_comment 1
+view_post 2
+delete_reply 1 1
+current_post
+
+# Test 4: Boundary index testing
+view_post 0
+view_post -1
+view_post 999999
+delete_post 0
+delete_post -1
+delete_post 999999
+delete_comment 0
+delete_comment -1
+delete_comment 999999
+delete_reply 0 0
+delete_reply -1 -1
+delete_reply 999999 999999
+
+exit

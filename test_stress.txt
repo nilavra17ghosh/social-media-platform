@@ -1,0 +1,224 @@
+# STRESS TEST SUITE - Very Hard and Complicated Test Cases
+# Test Suite: Comprehensive Social Media Platform Stress Testing
+
+# Scenario 1: Massive Post Creation and Navigation
+add_post user1 post001
+add_post user2 post002
+add_post user3 post003
+add_post user4 post004
+add_post user5 post005
+add_post user6 post006
+add_post user7 post007
+add_post user8 post008
+add_post user9 post009
+add_post user10 post010
+add_post user11 post011
+add_post user12 post012
+add_post user13 post013
+add_post user14 post014
+add_post user15 post015
+add_post user16 post016
+add_post user17 post017
+add_post user18 post018
+add_post user19 post019
+add_post user20 post020
+
+# Navigate through all posts
+view_post 1
+view_post 5
+view_post 10
+view_post 15
+view_post 20
+view_post 25
+view_post 0
+view_post -5
+
+# Complex navigation pattern
+view_post 10
+next_post
+next_post
+next_post
+previous_post
+current_post
+next_post
+previous_post
+previous_post
+previous_post
+
+# Scenario 2: Intensive Comment Operations
+view_post 1
+add_comment commentuser1 comment_on_post1_line1
+add_comment commentuser2 comment_on_post1_line2
+add_comment commentuser3 comment_on_post1_line3
+add_comment commentuser4 comment_on_post1_line4
+add_comment commentuser5 comment_on_post1_line5
+add_comment commentuser6 comment_on_post1_line6
+add_comment commentuser7 comment_on_post1_line7
+add_comment commentuser8 comment_on_post1_line8
+add_comment commentuser9 comment_on_post1_line9
+add_comment commentuser10 comment_on_post1_line10
+
+view_comments
+
+# Scenario 3: Complex Reply Chains
+add_reply replyuser1 reply_to_comment1 1
+add_reply replyuser2 reply_to_comment1_2nd 1
+add_reply replyuser3 reply_to_comment1_3rd 1
+add_reply replyuser4 reply_to_comment2 2
+add_reply replyuser5 reply_to_comment3 3
+add_reply replyuser6 reply_to_comment4 4
+add_reply replyuser7 reply_to_comment5 5
+
+view_comments
+
+# Scenario 4: Mixed Operations with Different Posts
+view_post 5
+add_comment post5_commentuser1 amazing_post_5
+add_comment post5_commentuser2 love_this_content
+add_reply post5_replyuser1 totally_agree 1
+add_reply post5_replyuser2 so_true 2
+
+view_post 15
+add_comment post15_commentuser1 interesting_perspective
+add_comment post15_commentuser2 well_written
+add_comment post15_commentuser3 thought_provoking
+
+view_post 3
+add_comment post3_commentuser1 nice_work
+add_reply post3_replyuser1 keep_it_up 1
+
+# Scenario 5: Massive Deletion Operations
+# Delete some replies
+delete_reply 1 1
+delete_reply 1 1
+delete_reply 2 1
+delete_reply 3 1
+
+# Delete some comments
+delete_comment 1
+delete_comment 1
+delete_comment 2
+
+view_comments
+
+# Scenario 6: Post Deletion Chain Reaction
+delete_post 1
+delete_post 5
+delete_post 10
+delete_post 15
+delete_post 20
+
+# Try to access deleted posts
+view_post 1
+view_post 5
+view_post 10
+
+# Navigate after deletions
+current_post
+next_post
+previous_post
+
+# Scenario 7: Edge Case Chain - Invalid Operations
+view_post 100
+add_comment invalid_user invalid_comment
+delete_post 100
+delete_comment 100
+delete_reply 100 100
+
+# Scenario 8: Rapid State Changes
+view_post 2
+add_comment rapid1 comment1
+view_post 3
+add_comment rapid2 comment2
+view_post 4
+add_comment rapid3 comment3
+view_post 2
+view_comments
+view_post 3
+view_comments
+view_post 4
+view_comments
+
+# Scenario 9: Complex Navigation After Deletions
+view_post 6
+next_post
+next_post
+delete_post 7
+current_post
+next_post
+previous_post
+delete_post 6
+current_post
+
+# Scenario 10: Maximum Boundary Testing
+add_post boundary_user very_long_caption_that_tests_the_limits_of_our_string_handling
+view_post 1
+add_comment boundary_comment_user this_is_a_very_long_comment_content_to_test_string_boundaries
+add_reply boundary_reply_user this_is_an_extremely_long_reply_content_for_boundary_testing 1
+
+# Scenario 11: Interleaved Operations Pattern
+add_post interleave1 content1
+view_post 1
+add_comment ic1 comment1
+add_post interleave2 content2
+view_post 2
+add_comment ic2 comment2
+add_reply ir1 reply1 1
+view_post 1
+add_reply ir2 reply2 1
+delete_comment 1
+view_post 2
+delete_reply 1 1
+view_comments
+
+# Scenario 12: Sequential Access Pattern
+view_post 1
+view_post 2
+view_post 3
+view_post 4
+view_post 5
+view_post 6
+view_post 7
+view_post 8
+view_post 9
+view_post 10
+
+# Scenario 13: Reverse Sequential Access
+view_post 10
+view_post 9
+view_post 8
+view_post 7
+view_post 6
+view_post 5
+view_post 4
+view_post 3
+view_post 2
+view_post 1
+
+# Scenario 14: Random Access Pattern
+view_post 7
+view_post 3
+view_post 12
+view_post 1
+view_post 9
+view_post 5
+view_post 11
+view_post 2
+
+# Scenario 15: Final Cleanup and Edge Cases
+delete_post 1
+delete_post 2
+delete_post 3
+current_post
+view_comments
+add_comment final_user final_comment
+view_comments
+delete_comment 1
+view_comments
+
+# Test invalid commands at the end
+invalid_final_command
+add_post_wrong_syntax
+delete_everything
+
+exit

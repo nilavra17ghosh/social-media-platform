@@ -1,0 +1,27 @@
+add_post user1 hello_world
+add_post user2 second_post
+add_post user3 third_post
+view_post 1
+view_post 2
+view_post 3
+add_comment user4 nice_post
+add_comment user5 great_content
+view_comments
+add_reply user6 thanks 1
+add_reply user7 awesome 2
+view_comments
+current_post
+next_post
+previous_post
+previous_post
+next_post
+next_post
+current_post
+delete_comment 1
+view_comments
+delete_reply 1 1
+view_comments
+delete_post 2
+view_post 1
+view_post 2
+exit
