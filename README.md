@@ -173,7 +173,7 @@ The platform successfully handles:
 
 ## Contributors
 - Student ID: 2023102006
-- Data Structures and Algorithms Project
+- Data Structures and Algorithms Assignment
 
 ## License
 Academic Project - For Educational Use Only
